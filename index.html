@@ -25,6 +25,9 @@
             <button class="tab-btn" data-tab="statistics">
                 <span class="tab-icon">📊</span> Statistics
             </button>
+            <button class="tab-btn" data-tab="settings">
+                <span class="tab-icon">⚙️</span> Settings
+            </button>
         </nav>
 
         <!-- Practice Tab -->
@@ -32,15 +35,15 @@
             <div class="practice-container">
                 <div class="problem-display">
                     <div class="problem">
-                        <span class="number" id="num1">00</span>
+                        <span class="number" id="num1">--</span>
                         <span class="operator">×</span>
-                        <span class="number" id="num2">00</span>
+                        <span class="number" id="num2">--</span>
                         <span class="equals">=</span>
                         <span class="question">?</span>
                     </div>
                 </div>
 
-                <div class="timer-display">
+                <div class="timer-display" id="timerDisplay">
                     <div class="timer" id="timer">0.00s</div>
                 </div>
 
@@ -51,8 +54,9 @@
                         placeholder="Enter your answer" 
                         class="answer-input"
                         autocomplete="off"
+                        disabled
                     >
-                    <button id="submitBtn" class="submit-btn">Submit</button>
+                    <button id="submitBtn" class="submit-btn" disabled>Submit</button>
                 </div>
 
                 <div class="feedback" id="feedback"></div>
@@ -73,7 +77,8 @@
                 </div>
 
                 <div class="button-group">
-                    <button id="newProblemBtn" class="secondary-btn">Next Problem</button>
+                    <button id="generateBtn" class="primary-btn">Generate Problem</button>
+                    <button id="newProblemBtn" class="secondary-btn" disabled>Next Problem</button>
                     <button id="resetSessionBtn" class="secondary-btn danger">Reset Session</button>
                 </div>
             </div>
@@ -292,6 +297,62 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Settings Tab -->
+        <section id="settings" class="tab-content">
+            <div class="settings-container">
+                <h2>Settings</h2>
+
+                <!-- Theme Section -->
+                <div class="settings-section">
+                    <h3>🎨 Color Theme</h3>
+                    <p class="section-description">Choose your preferred color theme</p>
+                    <div class="theme-grid">
+                        <button class="theme-btn active" data-theme="indigo">
+                            <span class="theme-preview" style="background: linear-gradient(135deg, #6366f1, #818cf8);"></span>
+                            <span class="theme-name">Indigo</span>
+                        </button>
+                        <button class="theme-btn" data-theme="emerald">
+                            <span class="theme-preview" style="background: linear-gradient(135deg, #059669, #10b981);"></span>
+                            <span class="theme-name">Emerald</span>
+                        </button>
+                        <button class="theme-btn" data-theme="blue">
+                            <span class="theme-preview" style="background: linear-gradient(135deg, #0284c7, #0ea5e9);"></span>
+                            <span class="theme-name">Blue</span>
+                        </button>
+                        <button class="theme-btn" data-theme="purple">
+                            <span class="theme-preview" style="background: linear-gradient(135deg, #7c3aed, #a855f7);"></span>
+                            <span class="theme-name">Purple</span>
+                        </button>
+                        <button class="theme-btn" data-theme="pink">
+                            <span class="theme-preview" style="background: linear-gradient(135deg, #ec4899, #f472b6);"></span>
+                            <span class="theme-name">Pink</span>
+                        </button>
+                        <button class="theme-btn" data-theme="orange">
+                            <span class="theme-preview" style="background: linear-gradient(135deg, #ea580c, #fb923c);"></span>
+                            <span class="theme-name">Orange</span>
+                        </button>
+                        <button class="theme-btn" data-theme="teal">
+                            <span class="theme-preview" style="background: linear-gradient(135deg, #0d9488, #14b8a6);"></span>
+                            <span class="theme-name">Teal</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Timer Section -->
+                <div class="settings-section">
+                    <h3>⏱️ Timer</h3>
+                    <p class="section-description">Show or hide the timer during practice</p>
+                    <div class="toggle-section">
+                        <label class="toggle-label">
+                            <input type="checkbox" id="timerToggle" class="toggle-input" checked>
+                            <span class="toggle-switch"></span>
+                            <span class="toggle-text">Show Timer</span>
+                        </label>
                     </div>
                 </div>
             </div>
