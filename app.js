@@ -60,53 +60,45 @@ function setupEventListeners() {
 // THEME SYSTEM
 // ===========================
 const THEMES = {
-    yellowstone: {
-        name: 'yellowstone',
-        color: 'linear-gradient(135deg, #F4D03F, #F39C12)'
-    },
-    terminal: {
-        name: 'terminal',
-        color: 'linear-gradient(135deg, #00FF00, #00CC00)'
-    },
-    vaporwave: {
-        name: 'vaporwave',
-        color: 'linear-gradient(135deg, #c2c2ff, #8b8bff)'
-    },
-    frozen_llama: {
-        name: 'frozen_llama',
-        color: 'linear-gradient(135deg, #5dd9c1, #2dbea8)'
+    cafe: {
+        name: 'cafe',
+        color: 'linear-gradient(135deg, #a89968, #8a7a54)'
     },
     strawberry: {
         name: 'strawberry',
-        color: 'linear-gradient(135deg, #ff6b7a, #ff4757)'
+        color: 'linear-gradient(135deg, #ff6b7a, #dd5a68)'
     },
     creamsicle: {
         name: 'creamsicle',
-        color: 'linear-gradient(135deg, #ffb366, #ff9f43)'
+        color: 'linear-gradient(135deg, #ffb366, #dd9952)'
     },
-    lavender: {
-        name: 'lavender',
-        color: 'linear-gradient(135deg, #b19cd9, #9d6ba8)'
+    iv_clover: {
+        name: 'iv_clover',
+        color: 'linear-gradient(135deg, #7a7a7a, #6b6b6b)'
     },
-    peaches: {
-        name: 'peaches',
-        color: 'linear-gradient(135deg, #ffb088, #ff8f5e)'
+    alpine: {
+        name: 'alpine',
+        color: 'linear-gradient(135deg, #b8a998, #9a8b7a)'
     },
-    mint: {
-        name: 'mint',
-        color: 'linear-gradient(135deg, #98ff98, #7ae97a)'
+    striker: {
+        name: 'striker',
+        color: 'linear-gradient(135deg, #4a90e2, #3a7acc)'
     },
-    pink_lemonade: {
-        name: 'pink_lemonade',
-        color: 'linear-gradient(135deg, #ff69b4, #ff1493)'
+    serika_dark: {
+        name: 'serika_dark',
+        color: 'linear-gradient(135deg, #e4c4a0, #c4a480)'
     },
-    tiramisu: {
-        name: 'tiramisu',
-        color: 'linear-gradient(135deg, #d4a574, #c8925f)'
+    repose_dark: {
+        name: 'repose_dark',
+        color: 'linear-gradient(135deg, #b3aa93, #9a9a83)'
     },
-    mizu: {
-        name: 'mizu',
-        color: 'linear-gradient(135deg, #98bfe8, #6fa3d1)'
+    sonokai: {
+        name: 'sonokai',
+        color: 'linear-gradient(135deg, #a3d900, #8abe00)'
+    },
+    viridescent: {
+        name: 'viridescent',
+        color: 'linear-gradient(135deg, #6b9f79, #5a8f68)'
     }
 };
 
@@ -138,7 +130,7 @@ function setTheme(themeName) {
 }
 
 function loadSavedTheme() {
-    const savedTheme = localStorage.getItem(STORAGE_KEYS.THEME) || 'yellowstone';
+    const savedTheme = localStorage.getItem(STORAGE_KEYS.THEME) || 'cafe';
     setTheme(savedTheme);
 }
 
