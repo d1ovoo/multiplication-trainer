@@ -60,6 +60,14 @@ function setupEventListeners() {
 // THEME SYSTEM
 // ===========================
 const THEMES = {
+    yellowstone: {
+        name: 'yellowstone',
+        color: 'linear-gradient(135deg, #F4D03F, #F39C12)'
+    },
+    terminal: {
+        name: 'terminal',
+        color: 'linear-gradient(135deg, #00FF00, #00CC00)'
+    },
     vaporwave: {
         name: 'vaporwave',
         color: 'linear-gradient(135deg, #c2c2ff, #8b8bff)'
@@ -130,7 +138,7 @@ function setTheme(themeName) {
 }
 
 function loadSavedTheme() {
-    const savedTheme = localStorage.getItem(STORAGE_KEYS.THEME) || 'vaporwave';
+    const savedTheme = localStorage.getItem(STORAGE_KEYS.THEME) || 'yellowstone';
     setTheme(savedTheme);
 }
 
