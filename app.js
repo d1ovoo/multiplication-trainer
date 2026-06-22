@@ -52,7 +52,15 @@ function setupEventListeners() {
     document.getElementById('generateBtn').addEventListener('click', startPractice);
     document.getElementById('submitBtn').addEventListener('click', submitAnswer);
     document.getElementById('answerInput').addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') submitAnswer();
+        if (e.key === 'Enter') {
+            // If the next problem button is enabled, advance to next problem
+            if (!document.getElementById('newProblemBtn').disabled) {
+                nextProblem();
+            } else {
+                // Otherwise submit the current answer
+                submitAnswer();
+            }
+        }
     });
     document.getElementById('newProblemBtn').addEventListener('click', nextProblem);
     document.getElementById('resetSessionBtn').addEventListener('click', resetSession);
