@@ -2,7 +2,7 @@
 
 A responsive single-page web application for practicing 2-digit × 2-digit mental multiplication. Features speed tracking, learning materials, and advanced statistics with speedcubing-style rolling averages.
 
-**Live Demo:** https://bholdvilnius.github.io/multiplication-trainer
+**Live Demo:** https://d1ovoo.github.io/multiplication-trainer/
 
 ---
 
@@ -256,4 +256,4 @@ Remember: The goal is improvement, not perfection. Enjoy the process of masterin
 
 ---
 
-**Made with ❤️ for math enthusiasts and competitive speedcubers**
+**Made with ❤️ for math enthusiasts**
