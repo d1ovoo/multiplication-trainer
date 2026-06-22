@@ -521,7 +521,7 @@ header h1 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 1rem;
-    margin-top: -40px;
+    margin-top: -80px;
 }
 
 .stat {
