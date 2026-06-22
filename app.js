@@ -8,6 +8,7 @@ const state = {
     timerStartTime: null,
     isTimerRunning: false,
     practiceStarted: false,
+    timerVisible: true,
 };
 
 // ===========================
@@ -16,6 +17,7 @@ const state = {
 const STORAGE_KEYS = {
     HISTORY: 'multiplicationHistory',
     THEME: 'selectedTheme',
+    TIMER_VISIBLE: 'timerVisible',
 };
 
 // ===========================
@@ -28,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateStatistics();
     updateSessionStats();
     setupThemeSelector();
+    setupTimerToggle();
 });
 
 function initializeApp() {
@@ -37,6 +40,8 @@ function initializeApp() {
     showInitialState();
     // Load saved theme
     loadSavedTheme();
+    // Load saved timer visibility
+    loadTimerVisibility();
 }
 
 function setupEventListeners() {
@@ -54,6 +59,43 @@ function setupEventListeners() {
     document.getElementById('clearHistoryBtn').addEventListener('click', clearAllData);
 
     document.getElementById('answerInput').focus();
+}
+
+// ===========================
+// TIMER TOGGLE
+// ===========================
+function setupTimerToggle() {
+    const timerToggle = document.getElementById('timerToggle');
+    if (timerToggle) {
+        timerToggle.addEventListener('change', (e) => {
+            state.timerVisible = e.target.checked;
+            localStorage.setItem(STORAGE_KEYS.TIMER_VISIBLE, state.timerVisible);
+            updateTimerVisibility();
+        });
+    }
+}
+
+function loadTimerVisibility() {
+    const saved = localStorage.getItem(STORAGE_KEYS.TIMER_VISIBLE);
+    state.timerVisible = saved !== null ? saved === 'true' : true;
+    
+    const timerToggle = document.getElementById('timerToggle');
+    if (timerToggle) {
+        timerToggle.checked = state.timerVisible;
+    }
+    
+    updateTimerVisibility();
+}
+
+function updateTimerVisibility() {
+    const timer = document.getElementById('timer');
+    if (timer) {
+        if (state.timerVisible) {
+            timer.style.display = 'block';
+        } else {
+            timer.style.display = 'none';
+        }
+    }
 }
 
 // ===========================
@@ -232,6 +274,11 @@ function generateNewProblem() {
     document.getElementById('submitBtn').disabled = false;
     document.getElementById('newProblemBtn').disabled = true;
 
+    // Hide timer when showing new problem (if timer toggle is off)
+    if (!state.timerVisible) {
+        document.getElementById('timer').style.display = 'none';
+    }
+
     startTimer();
 }
 
@@ -282,6 +329,9 @@ function submitAnswer() {
 
     stopTimer();
     const elapsedTime = getElapsedTime();
+
+    // Show timer when displaying result
+    document.getElementById('timer').style.display = 'block';
 
     if (userAnswer === state.currentProblem.answer) {
         showFeedback('✓ Correct!', 'correct');
